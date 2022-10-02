@@ -6,11 +6,12 @@ import './header.css';
 export const Header = () => {
 
     const dispatch = useDispatch();
+    
 
     return (
         <div className='header_body'>
             <button
-                onClick={() => dispatch(setShowForm(true))}
+                onClick={() => dispatch(setShowForm({ boolean: true, data:{} }))}
                 type="button"
                 class="btn btn-info">Create New</button>
         </div>

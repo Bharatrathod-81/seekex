@@ -7,21 +7,12 @@ export const Form = ({ editDetail, setEditDetails }) => {
 
     const dispatch = useDispatch();
 
-    const { usersList } = useSelector(state => state.usersList);
+    const { usersList, editContain } = useSelector(state => state.usersList);
     const allAvatar = usersList.reduce((acc, curr) => acc.includes(curr.avatar) ? acc : [...acc, curr.avatar], []);
 
 
-    const initialState = editDetail ? editDetail : {
-        DOB: '',
-        email: '',
-        avatar: '',
-        fullName: '',
-        country: ''
-    };
-
-
     const [showAvator, setShowAvator] = useState(false);
-    const [userDetails, setUserDetails] = useState(initialState);
+    const [userDetails, setUserDetails] = useState(editContain);
     const [worning, setWorning] = useState(false);
 
     const setAvator = (e) => {
@@ -32,7 +23,6 @@ export const Form = ({ editDetail, setEditDetails }) => {
     const clickHandler = () => {
         if (userDetails.DOB && userDetails.email &&
             userDetails.fullName && userDetails.country) {
-
             if (editDetail) {
                 dispatch(editUser(userDetails));
                 dispatch(EditUser(userDetails));
@@ -52,6 +42,10 @@ export const Form = ({ editDetail, setEditDetails }) => {
         } else {
             setWorning(true);
         }
+    };
+    
+    const initializeFunc = () => {
+        dispatch(setShowForm({boolean:false,data:{}}));
     };
 
 
@@ -121,12 +115,12 @@ export const Form = ({ editDetail, setEditDetails }) => {
                     <button
                         onClick={() => {
                             clickHandler();
-                            dispatch(setShowForm(false));
+                            initializeFunc();
                         }}
                         type="submit"
                         className="btn btn-primary m-3">Submit</button>
                     <button
-                        onClick={() => dispatch(setShowForm(false))}
+                        onClick={() => initializeFunc()}
                         type="submit"
                         className="btn btn-primary">Cancel</button>
                 </form>

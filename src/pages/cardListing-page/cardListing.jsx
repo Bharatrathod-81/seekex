@@ -22,7 +22,7 @@ export const CardListing = ({ setEditDetails }) => {
             <div 
             onClick={() => {
                 setEditDetails(e);
-                dispatch(setShowForm(true))
+                dispatch(setShowForm({boolean:true,data:e}))
             }}
             key={e.id}>
                 <CardVeiw data={e}/>
