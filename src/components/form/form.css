@@ -1,0 +1,44 @@
+.form_body{
+    position: fixed;
+    background-color: rgba(149, 147, 147, 0.568);
+    width: 100%;
+    height: 90vh;
+    top: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    width: 23rem;
+    height: fit-content;
+    margin: 0rem 0.5rem;
+    background-color: rgb(175, 171, 171);
+    padding: 1rem;
+    position: relative;
+}
+
+.option-img-container{
+    position: absolute;
+    border: 1px solid rgb(67, 61, 61);
+    padding: 0.5rem;
+    margin: 1rem;
+    top: 0%;
+    left: 2%;
+    right: 2%;
+    background-color: white;
+    border-radius: 0.2rem;
+}
+
+.option-img{
+    border: 1px solid;
+    width: 20%;
+}
+
+.btn-outline-secondary{
+    background-color: azure;
+}
+
+.option-img:hover{
+    opacity: 0.5;
+}

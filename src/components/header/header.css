@@ -1,0 +1,8 @@
+.header_body{
+    background-color: rgb(138, 50, 189);
+    padding: 2rem;
+    position: fixed;
+    top: 0rem;
+    z-index: 2;
+    width: 100%;
+}

@@ -1,0 +1,13 @@
+.card{
+    margin: 0.5rem 0rem;
+    cursor: pointer;
+}
+
+.card-body{
+    text-align: start;
+}
+
+.card-img-top{
+    width: 30%;
+    height: 13vh;
+}
