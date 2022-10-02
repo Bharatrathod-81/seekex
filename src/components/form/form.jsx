@@ -3,14 +3,14 @@ import React, { useState } from 'react'
 import { addUser, editUser, EditUser, postUser, setShowForm ,getUsersList} from '../../slice';
 import { useDispatch, useSelector } from 'react-redux';
 
-export const Form = ({ editDetail, setEditDetails }) => {
+export const Form = () => {
 
     const dispatch = useDispatch();
 
     const { usersList, editContain } = useSelector(state => state.usersList);
     const allAvatar = usersList.reduce((acc, curr) => acc.includes(curr.avatar) ? acc : [...acc, curr.avatar], []);
 
-
+    console.log();
     const [showAvator, setShowAvator] = useState(false);
     const [userDetails, setUserDetails] = useState(editContain);
     const [worning, setWorning] = useState(false);
@@ -23,10 +23,9 @@ export const Form = ({ editDetail, setEditDetails }) => {
     const clickHandler = () => {
         if (userDetails.DOB && userDetails.email &&
             userDetails.fullName && userDetails.country) {
-            if (editDetail) {
+            if (editContain.id) {
                 dispatch(editUser(userDetails));
                 dispatch(EditUser(userDetails));
-                setEditDetails(null)
             } else {
                 dispatch(postUser(userDetails));
                 dispatch(addUser({id:usersList[usersList.length-1].id+1,...userDetails}));
@@ -43,7 +42,7 @@ export const Form = ({ editDetail, setEditDetails }) => {
             setWorning(true);
         }
     };
-    
+
     const initializeFunc = () => {
         dispatch(setShowForm({boolean:false,data:{}}));
     };

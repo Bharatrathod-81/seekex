@@ -21,7 +21,7 @@ export const CardListing = ({ setEditDetails }) => {
             {usersList?.map(e => 
             <div 
             onClick={() => {
-                setEditDetails(e);
+                // setEditDetails(e);
                 dispatch(setShowForm({boolean:true,data:e}))
             }}
             key={e.id}>

@@ -8,7 +8,6 @@ import { getUsersList } from './slice';
 
 function App() {
   
-  const [editDetail, setEditDetails] = useState(null);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -20,8 +19,8 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <CardListing setEditDetails={setEditDetails}/>
-      {showForm && <Form editDetail={editDetail} setEditDetails={setEditDetails}/>}
+      <CardListing />
+      {showForm && <Form />}
     </div>
   );
 }
